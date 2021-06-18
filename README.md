@@ -1,6 +1,20 @@
-# UNIFEI - Universidade Federal de Itajubá
+<p align="center">
+  <img src="/unifei.png" width="150">
+<p/>
 
-## Trabalho final da matéria COM231 - Banco de dados II
+<div>
+    
+  <h2 align='center'>UNIFEI - Universidade Federal de Itajubá<br><br>Trabalho final da matéria COM231 - Banco de dados II</h2>
+
+
+</div>
+
+
+## Tecnologias Utilizadas
+
+<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white"/> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+
+
 
 
 ## Objetivo
@@ -54,7 +68,10 @@ API, funções que salvam os dados tratados no banco.
 A API escilhida foi [TBDb Movies](https://www.themoviedb.org/documentation/api)
 
 ## Modelo relacional criado a partir dos dados disponiveis na API
-<img src="/modelagem.png" height="500"> 
+<img src="/modelagem" height="500"> 
+
+## SQL do modelo relacional
+Caso queira criar o banco de dados na sua maquina basta executar o comandos sql listados [neste documento](https://docs.google.com/document/d/1vDa5XZbt_17oftN4uM6nDnA_VS9txFs0blgwiAdhQ8A/edit) 
 
 
 
