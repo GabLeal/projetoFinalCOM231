@@ -50,4 +50,10 @@ API, funções que salvam os dados tratados no banco.
 - [ ] Link para o código desenvolvido
 - [ ] Apresentação que será usada pelo grupo na aula síncrona.
 
+## Api escolhida
+A API escilhida foi [TBDb Movies](https://www.themoviedb.org/documentation/api)
+
+## Modelo relacional criado a partir dos dados disponiveis na API
+
+
 
