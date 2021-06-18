@@ -54,6 +54,8 @@ API, funções que salvam os dados tratados no banco.
 A API escilhida foi [TBDb Movies](https://www.themoviedb.org/documentation/api)
 
 ## Modelo relacional criado a partir dos dados disponiveis na API
+<img src="/modelagem.png" height="500"> 
+
 
 
 
