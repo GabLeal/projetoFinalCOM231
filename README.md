@@ -12,7 +12,7 @@
 
 ## Tecnologias Utilizadas
 
-<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white"/> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img alt="node.js" src="https://img.shields.io/badge/-node.js-44883e?logo=Node.js&logoColor=white&style=for-the-badge"> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/> <img alt="Sequelize%20orm" src="https://img.shields.io/badge/-Sequelize%20orm-blue?style=for-the-badge"> <img alt="Jmeter" src="https://img.shields.io/badge/-Jmeter-crimson?logo=Apache&style=for-the-badge">
 
 
 
