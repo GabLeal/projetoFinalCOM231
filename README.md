@@ -34,7 +34,7 @@ dados.
 ### 3ª Etapa
 - [x] Desenvolver uma aplicação para consumir os dados da API
 - [x] Dar carga no banco de dados
-- [ ] Otimizar o banco de dados
+- [x] Otimizar o banco de dados
 
 ### 4ª Etapa
 - [ ] Estudar sobre Relatórios Ad-Hoc
