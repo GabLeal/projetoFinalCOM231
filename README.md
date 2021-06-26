@@ -71,7 +71,7 @@ A API escilhida foi [TBDb Movies](https://www.themoviedb.org/documentation/api)
 <img src="/modelagem" height="500"> 
 
 ## SQL do modelo relacional
-Caso queira criar o banco de dados na sua maquina basta executar o comandos sql listados [neste documento](https://docs.google.com/document/d/1vDa5XZbt_17oftN4uM6nDnA_VS9txFs0blgwiAdhQ8A/edit) 
+Para criar o banco de dados na sua maquina basta executar o comandos sql listados [neste documento](https://docs.google.com/document/d/1vDa5XZbt_17oftN4uM6nDnA_VS9txFs0blgwiAdhQ8A/edit). Além dos comando para criar as tabelas você pode executar os comandos que criam os indices que foram definidos para otimizar alguns tipos de consultas que podem ser realizados com um frequencia maior.
 
 
 
