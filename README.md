@@ -79,12 +79,12 @@ Para criar o banco de dados na sua maquina basta executar o comandos sql listado
 
 Depois de criar uma base de dados e usar o script disponivel na etapa anterior basta clonar este repositorio e:
 
-1. Abrir o projeto e baixar e baixar as suas dependencais com:
+1. Abrir o projeto e baixar as suas dependencais com:
 ```
 npm install
 ```
 
-2. acessar o arquivo config.json dentro da pasta app/config e mudar o valor das variaveis username, password e database como no exemplo abaixo.
+2. acessar o arquivo config.json dentro da pasta app/config e mudar o valor das variaveis username, password e database como no exemplo abaixo.<br>
 **observação:** Caso você utilizo um banco de dados diferente do postgres será necessario alterar o dialect.
 ```
 {
