@@ -84,7 +84,8 @@ Depois de criar uma base de dados e usar o script disponivel na etapa anterior b
 npm install
 ```
 
-2. acessar o arquivo config.json dentro da pasta app/config e mudar o 
+2. acessar o arquivo config.json dentro da pasta app/config e mudar o valor das variaveis username, password e database como no exemplo abaixo.
+**observação:** Caso você utilizo um banco de dados diferente do postgres será necessario alterar o dialect.
 ```
 {
   "development": {
