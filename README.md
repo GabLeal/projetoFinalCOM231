@@ -70,9 +70,32 @@ A API escilhida foi [TBDb Movies](https://www.themoviedb.org/documentation/api)
 ## Modelo relacional criado a partir dos dados disponiveis na API
 <img src="/modelagem" height="500"> 
 
+### Como utilizar
+
 ## SQL do modelo relacional
 Para criar o banco de dados na sua maquina basta executar o comandos sql listados [neste documento](https://docs.google.com/document/d/1vDa5XZbt_17oftN4uM6nDnA_VS9txFs0blgwiAdhQ8A/edit). Além dos comando para criar as tabelas você pode executar os comandos que criam os indices que foram definidos para otimizar alguns tipos de consultas que podem ser realizados com um frequencia maior.
 
+## Configurar aplicação
 
+Depois de criar uma base de dados e usar o script disponivel na etapa anterior basta clonar este repositorio e:
+
+1. Abrir o projeto e baixar e baixar as suas dependencais com:
+```
+npm install
+```
+
+2. acessar o arquivo config.json dentro da pasta app/config e mudar o 
+```
+{
+  "development": {
+    "username": NOME_DO_SEU_USUARIO,
+    "password": SUA_SENHA,
+    "database": NOME_DO_SEU_BANCO,
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+...
+}
+```
 
 
