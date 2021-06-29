@@ -52,9 +52,9 @@ analisada
 ## Entregas
 
 ### 1ª Entrega
-- [ ] DR, definição de grupos de usuários e suas permissões, definição de índices e justificativas, definição de views, triggers, procedures, funções e suas justificativas, caso existam.
-- [ ] Print com o count das tabelas
-- [ ] Um vídeo mostrando a aplicação funcionando. Neste vídeo é importante
+- [x] DR, definição de grupos de usuários e suas permissões, definição de índices e justificativas, definição de views, triggers, procedures, funções e suas justificativas, caso existam.
+- [x] Print com o count das tabelas
+- [x] Um vídeo mostrando a aplicação funcionando. Neste vídeo é importante
 mostrar a conexão com o banco, funções que fazem a requisição dos dados da
 API, funções que salvam os dados tratados no banco.
 
