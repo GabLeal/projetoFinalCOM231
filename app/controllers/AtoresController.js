@@ -2,6 +2,18 @@ const { AtoresServices } = require('../services')
 
 class AtoresController{
 
+    async buscarTodosOsAtores(){
+        try {
+            const resultado = await AtoresServices.buscarTodos()
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os atores')
+            console.log(error)
+        }
+    }
+
     async cadastrarAtores(ator){
         try {
             const resultado = await AtoresServices.criar(ator)

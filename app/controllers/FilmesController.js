@@ -3,6 +3,34 @@ const dataBase = require('../models')
 const { FilmesServices, AtuacoesServices } = require('../services')
 class FilmesController{
 
+
+    async buscarTodosOsFilmes(valor,atributo, order){
+        try {
+            const resultado = await FilmesServices.buscarTodos(valor,atributo, order)
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+
+    async filmesComMaisAtores(){
+        try {
+            const resultado = await FilmesServices.filmesComMaisAtores()
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    /// acima são coisas novas 2 entrega
+
     async cadastrarFilme(filme){
         try {
             const resultado = await FilmesServices.criar(filme)

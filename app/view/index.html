@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+
+    <title>Document</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+
+        .ellipsis {
+    max-width: 20%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+        </style>
+</head>
+<body>
+    <div class="chart-container">
+        <canvas class="line-chart" width="500" height="100%"></canvas>
+    </div>
+
+    
+    <button onclick="myFunction()">Click me</button>
+
+
+    <div class="pesquisarNome">
+        <input type="text" name="enter" class="enter" value="" id="lolz"/>
+        <input type="button" value="click" onclick="myFunction1()"/>
+    </div>
+
+
+    <div class="atributosDaTabela">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="idCheck" value="idfilme">
+            <label class="form-check-label" for="inlineCheckbox2">id</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="nomeCheck" value="nome">
+            <label class="form-check-label" for="inlineCheckbox1">nome</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="descricaoCheck" value="descricao">
+            <label class="form-check-label" for="inlineCheckbox1">descrição</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="datalancamentoCheck" value="datalancamento">
+            <label class="form-check-label" for="inlineCheckbox1">data de lançamento</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="duracaoCheck" value="duracao">
+            <label class="form-check-label" for="inlineCheckbox1">duraçao</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="linguagemCheck" value="linguagemoriginal">
+            <label class="form-check-label" for="inlineCheckbox1">lingugem</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="orcamentoCheck" value="orcamento">
+            <label class="form-check-label" for="inlineCheckbox1">orçamento</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="notaCheck" value="nota">
+            <label class="form-check-label" for="inlineCheckbox1">nota</label>
+        </div>
+        <select id="orderBySelect" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            
+            <option selected value="idfilme">idfilme</option>
+            <option value="nome">nome</option>
+            <option value="descricao">descricao</option>
+            <option value="datalancamento">datalancamento</option>
+            <option value="duracao">duracao</option>
+            <option value="linguagemoriginal">linguagemoriginal</option>
+            <option value="orcamento">orcamento</option>
+            <option value="nota">nota</option>
+        </select>
+    </div>
+    <table id="#tabela"> 
+        <thead id="#tabelaHead">
+            <tr class="teste tabelaTitulo">
+                <th>idfilme</th>
+                <th>nome</th>
+                <th>descricao</th>
+                <th>datalancamento</th>
+                <th>duracao</th>
+                <th>linguagemoriginal</th>
+                <th>orcamento</th>
+                <th>nota</th>
+              </tr>
+        </thead>
+        <tbody>
+       
+        </tbody>
+      </table>
+
+      <script  src="/scripts/client.js"></script>
+</body>
+</html>
