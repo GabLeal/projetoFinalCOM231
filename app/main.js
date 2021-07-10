@@ -7,6 +7,7 @@ const express = require('express')
 const app = express()
 
 app.use('/scripts', express.static(__dirname + '/view/src/js'));
+app.use('/css', express.static(__dirname + '/view/src/css'));
 
 app.get('/', async (req, res)=>{
   // const filmes = await FilmesController.buscarTodosOsFilmes()

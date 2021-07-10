@@ -114,3 +114,6 @@ var chartGraph = new Chart(ctx ,{
     type: 'bar',
     data
 })
+
+// myFunction1()
+

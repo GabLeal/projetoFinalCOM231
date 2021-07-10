@@ -4,121 +4,254 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+    
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
+    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
 
     <title>Document</title>
-    <style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-
-        .ellipsis {
-    max-width: 20%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-        </style>
 </head>
-<body>
-    <div class="chart-container">
-        <canvas class="line-chart" width="500" height="100%"></canvas>
-    </div>
+
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <div> <h3>Trabalho Final COM231 - Banco de dados II</h3></div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> 
+                    <a href="#" class="nav_logo "> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">COM321</span> </a>
+                    <div class="nav_list"> 
+                        <a href="#" class="nav_link Dashboard active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
+                        <a href="#" class="nav_link Filmes"> <i class='bx bx-user nav_icon '></i> <span class="nav_name">Filmes</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Generos</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Atores</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Produtoras</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Atuacoes</span> </a> </div>
+                </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+            </nav>
+        </div>
+        <!--Container Main start-->
+
+            <div class="Conatiner">
+    
+                <div id="filmes" class="container conteudo">    
+                    <div class="pesquisarNome row">
+                        <input type="text" name="enter" class="enter form-control c" value="" id="lolz"/>
+                        <input type="button" value="click" onclick="myFunction1()"/>
+                    </div>
+    
+                
+                
+                    <div class="atributosDaTabela ">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="idCheck" value="idfilme">
+                            <label class="form-check-label" for="inlineCheckbox2">id</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="nomeCheck" value="nome">
+                            <label class="form-check-label" for="inlineCheckbox1">nome</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="descricaoCheck" value="descricao">
+                            <label class="form-check-label" for="inlineCheckbox1">descrição</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="datalancamentoCheck" value="datalancamento">
+                            <label class="form-check-label" for="inlineCheckbox1">data de lançamento</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="duracaoCheck" value="duracao">
+                            <label class="form-check-label" for="inlineCheckbox1">duraçao</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="linguagemCheck" value="linguagemoriginal">
+                            <label class="form-check-label" for="inlineCheckbox1">lingugem</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="orcamentoCheck" value="orcamento">
+                            <label class="form-check-label" for="inlineCheckbox1">orçamento</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="notaCheck" value="nota">
+                            <label class="form-check-label" for="inlineCheckbox1">nota</label>
+                        </div>
+                        
+                        <div class=" py-2">
+                            <p>Ordenar por:</p>
+                            <select id="orderBySelect" class="form-select form-select-md" aria-label=".form-select-sm example">
+                            
+                                <option selected value="idfilme">idfilme</option>
+                                <option value="nome">nome</option>
+                                <option value="descricao">descricao</option>
+                                <option value="datalancamento">datalancamento</option>
+                                <option value="duracao">duracao</option>
+                                <option value="linguagemoriginal">linguagemoriginal</option>
+                                <option value="orcamento">orcamento</option>
+                                <option value="nota">nota</option>
+                            </select>
+                        </div>
+                
+                    </div>
+                    <div class="">
+                        <div class="row">
+                            <div class="py-2 col">
+                                <p>Nota MAIOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorNoteSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="py-2 col">
+                                <p>Nota MENOR:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorNoteSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                
+                            <div class="py-2 col">
+                                <p>Orçamento MAIOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorNoteSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="py-2 col">
+                                <p>Orçamento MENOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorNoteSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <div class="">
+                        <div class="row">
+                
+                            <div class="py-2 col">
+                                <p>Duração(minutos) MAIOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorDurationSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="py-2 col">
+                                <p>Duração(minutos) MENOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorDurationSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                
+                        
+                            <div class="py-2 col">
+                                <p>Orçamento MAIOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorNoteSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="py-2 col">
+                                <p>Orçamento MENOR que:</p>
+                                <div class="input-group mb-3">
+                                    <input id="majorNoteSelected" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="row">
+                            <div class="py-2 col">
+                                <p>Data de lançamento Mínima: </p>
+                                <input class="form-control" id="minDateSelected" type="text" id="calendariomin" placeholder="20-05-2019" />
+                            </div>
+                            <div class="py-2 col">
+                                <p>Data de lançamento Máxima:</p>
+                                <input class="form-control" id="maxDateSelected" type="text" id="calendariomax" placeholder="21-12-2021" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wrapper">
+    
+                        <table id="#tabela"> 
+                            <thead id="#tabelaHead">
+                                <tr class="teste tabelaTitulo">
+                                    <th>idfilme</th>
+                                    <th>nome</th>
+                                    <th>descricao</th>
+                                    <th>datalancamento</th>
+                                    <th>duracao</th>
+                                    <th>linguagemoriginal</th>
+                                    <th>orcamento</th>
+                                    <th>nota</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div> 
+            </div>
+    <!--Container Main end-->
 
     
-    <button onclick="myFunction()">Click me</button>
-
-
-    <div class="pesquisarNome">
-        <input type="text" name="enter" class="enter" value="" id="lolz"/>
-        <input type="button" value="click" onclick="myFunction1()"/>
-    </div>
-
-
-    <div class="atributosDaTabela">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="idCheck" value="idfilme">
-            <label class="form-check-label" for="inlineCheckbox2">id</label>
+    <!-- TEMPLATE DASHBOARD -->
+        <div id="dashboard" class="conteudo">
+           <h2>Dashboard</h2>
+             <div class="chart-container">
+                <canvas class="line-chart" width="500" height="100%"></canvas>
+             </div>
+             <button onclick="myFunction()">Click me</button>
         </div>
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="nomeCheck" value="nome">
-            <label class="form-check-label" for="inlineCheckbox1">nome</label>
-        </div>
+    <!-- TEMPLATE DASHBOARD -->
+    <div id="generos" class="conteudo">
+        <h2>generos</h2>
+     </div>
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="descricaoCheck" value="descricao">
-            <label class="form-check-label" for="inlineCheckbox1">descrição</label>
-        </div>
+    <!-- TEMPLATE DASHBOARD -->
+    <div id="atuacoes" class="conteudo">
+        <h2>atuacoes</h2>
+     </div>
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="datalancamentoCheck" value="datalancamento">
-            <label class="form-check-label" for="inlineCheckbox1">data de lançamento</label>
-        </div>
+    <script  src="/scripts/navbar.js"></script>
+    <script  src="/scripts/client.js"></script>
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="duracaoCheck" value="duracao">
-            <label class="form-check-label" for="inlineCheckbox1">duraçao</label>
-        </div>
+    <script>
+        $('.Dashboard').click(function () {
+            // var temp = document.getElementsByTagName("template")[1];
+            // document.body.appendChild(temp.content);
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="linguagemCheck" value="linguagemoriginal">
-            <label class="form-check-label" for="inlineCheckbox1">lingugem</label>
-        </div>
+            // document.getElementById('dashboard').style.visibility = "visible";
+            // document.getElementById('filmes').style.visibility = "hidden";
+            document.getElementById('dashboard').style.display = "block";
+            document.getElementById('filmes').style.display = "none";
+        });
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="orcamentoCheck" value="orcamento">
-            <label class="form-check-label" for="inlineCheckbox1">orçamento</label>
-        </div>
+        $('.Filmes').click(function () {
+            // var temp = document.getElementsByTagName("template")[0];
+            // document.body.appendChild(temp.content);
+            document.getElementById('dashboard').style.display = "none";
+            document.getElementById('filmes').style.display = "block";
+        });
+        
+        document.getElementById('dashboard').style.display = "block";
+        document.getElementById('filmes').style.display = "none";
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="notaCheck" value="nota">
-            <label class="form-check-label" for="inlineCheckbox1">nota</label>
-        </div>
-        <select id="orderBySelect" class="form-select form-select-sm" aria-label=".form-select-sm example">
-            
-            <option selected value="idfilme">idfilme</option>
-            <option value="nome">nome</option>
-            <option value="descricao">descricao</option>
-            <option value="datalancamento">datalancamento</option>
-            <option value="duracao">duracao</option>
-            <option value="linguagemoriginal">linguagemoriginal</option>
-            <option value="orcamento">orcamento</option>
-            <option value="nota">nota</option>
-        </select>
-    </div>
-    <table id="#tabela"> 
-        <thead id="#tabelaHead">
-            <tr class="teste tabelaTitulo">
-                <th>idfilme</th>
-                <th>nome</th>
-                <th>descricao</th>
-                <th>datalancamento</th>
-                <th>duracao</th>
-                <th>linguagemoriginal</th>
-                <th>orcamento</th>
-                <th>nota</th>
-              </tr>
-        </thead>
-        <tbody>
-       
-        </tbody>
-      </table>
-
-      <script  src="/scripts/client.js"></script>
+    </script>
+     
 </body>
 </html>
