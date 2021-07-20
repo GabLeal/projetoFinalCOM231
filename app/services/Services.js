@@ -10,19 +10,27 @@ class Services{
         return database[this.nomeDoModelo].create(valor)
     }
 
-    async buscarTodos(valor,atributo, order){
+    async buscarTodos(valor,atributo, order, limit = 10){ 
         return database[this.nomeDoModelo].findAll(
         {
             
             attributes: atributo,
-            limit: 10,
+            limit: limit,
             order: [
                [`${order}`, 'DESC'],
             ],
             where: {
                 nome:{
-                     [Op.iLike]: `${valor}%`
-                 }
+                    [Op.iLike]: `${valor}%`
+                },
+                // nota:{
+                //     [Op.gte]: 10
+                // },
+                //  orcamento:{
+                //    [Op.gt] : 10
+                // }
+            
+                
             }
         }
         )

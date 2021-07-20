@@ -3,10 +3,58 @@ const dataBase = require('../models')
 const { FilmesServices, AtuacoesServices } = require('../services')
 class FilmesController{
 
-
-    async buscarTodosOsFilmes(valor,atributo, order){
+    async filmesGeneros(valor,atributo, order,generoFilme, limit,nota, dataPesquisa){
         try {
-            const resultado = await FilmesServices.buscarTodos(valor,atributo, order)
+            const resultado = await FilmesServices.filmesGeneros(valor,atributo, order,generoFilme, limit, nota, dataPesquisa)
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesAtores(valor,atributo, order, nomeAtor, limit){
+        try {
+            const resultado = await FilmesServices.filmesAtores(valor,atributo, order,nomeAtor, limit)
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesProdutoras(valor, atributo, order, nomeProdutora, limit){
+        try {
+            const resultado = await FilmesServices.filmesProdutoras(valor, atributo, order, nomeProdutora, limit)
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesGenerosProdutoras(valor,atributo, order,generoFilme, nomeProdutora, limit){
+        try {
+            const resultado = await FilmesServices.filmesGenerosProdutoras(valor, atributo, order, generoFilme, nomeProdutora, limit)
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+
+    async buscarTodosOsFilmes(valor,atributo, order, limit){
+        try {
+            const resultado = await FilmesServices.buscarTodos(valor,atributo, order, limit)
             
             return resultado
 
@@ -20,6 +68,42 @@ class FilmesController{
     async filmesComMaisAtores(){
         try {
             const resultado = await FilmesServices.filmesComMaisAtores()
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    async produtorasComMaisFilmes(){
+        try {
+            const resultado = await FilmesServices.produtorasComMaisFilmes()
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    async atoresComMaisAtuacoes(){
+        try {
+            const resultado = await FilmesServices.atoresComMaisAtuacoes()
+            
+            return resultado
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    async QuantidadeDeFilmesPorGenero(){
+        try {
+            const resultado = await FilmesServices.QuantidadeDeFilmesPorGenero()
             
             return resultado
 
