@@ -16,20 +16,13 @@ class Services{
             
             attributes: atributo,
             limit: limit,
-            order: [
-               [`${order}`, 'DESC'],
-            ],
+            // order: [
+            //    [`${order}`, 'DESC'],
+            // ],
             where: {
                 nome:{
-                    [Op.iLike]: `${valor}%`
+                    [Op.iLike]: `%`
                 },
-                // nota:{
-                //     [Op.gte]: 10
-                // },
-                //  orcamento:{
-                //    [Op.gt] : 10
-                // }
-            
                 
             }
         }

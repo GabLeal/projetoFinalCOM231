@@ -2,9 +2,9 @@ const { AtoresServices } = require('../services')
 
 class AtoresController{
 
-    async buscarTodosOsAtores(){
+    async buscarTodosOsAtores(valor,atributo,limit){
         try {
-            const resultado = await AtoresServices.buscarTodos()
+            const resultado = await AtoresServices.buscarTodos(valor,atributo,'', limit)
             
             return resultado
 

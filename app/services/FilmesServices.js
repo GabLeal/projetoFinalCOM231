@@ -111,6 +111,141 @@ class FilmesServices extends Services{
            , limit:limit,})
     }
 
+    async buscarFilmesGenerosAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+        return await database.Filmes.findAll({
+            attributes: atributo,
+            order: [
+                [`${order}`, 'DESC'],
+            ],
+            where: {
+                nome:{
+                    [Op.iLike]: `${valor}%`
+                },
+            },
+            include: [   
+                {
+                    model : database.Generos,
+                    attributes : ['nome'],
+                    where:{
+                        nome:{
+                            [Op.iLike]: `${generoFilme}%`
+                        },
+                    }
+                  
+                },
+                {
+                    model : database.Atores
+                 
+                } 
+            ]
+            
+           , limit:limit,})
+    }
+
+    async buscarFilmesProdutorasAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+        return await database.Filmes.findAll({
+            attributes: atributo,
+            order: [
+                [`${order}`, 'DESC'],
+            ],
+            where: {
+                nome:{
+                    [Op.iLike]: `${valor}%`
+                },
+            },
+            include: [   
+                {
+                    model : database.Produtoras,
+                    attributes : ['nome'],
+                    where:{
+                        nome:{
+                            [Op.iLike]: `${generoFilme}%`
+                        },
+                    }
+                  
+                },
+                {
+                    model : database.Atores
+                 
+                } 
+            ]
+            
+           , limit:limit,})
+    }
+
+    async buscarFilmesProdutorasGenerosAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+        return await database.Filmes.findAll({
+            attributes: atributo,
+            order: [
+                [`${order}`, 'DESC'],
+            ],
+            where: {
+                nome:{
+                    [Op.iLike]: `${valor}%`
+                },
+            },
+            include: [   
+                {
+                    model : database.Produtoras,
+                    attributes : ['nome'],
+                    where:{
+                        nome:{
+                            [Op.iLike]: `${generoFilme}%`
+                        },
+                    }
+                  
+                },
+                {
+                    model : database.Atores
+                 
+                } 
+            ]
+            
+           , limit:limit,})
+    }
+
+
+    async filmesGenerosProdutorasAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+        return await database.Filmes.findAll({
+            attributes: atributo,
+            order: [
+                [`${order}`, 'DESC'],
+            ],
+            where: {
+                nome:{
+                    [Op.iLike]: `${valor}%`
+                },
+            },
+            include: [   
+                {
+                    model : database.Produtoras,
+                    attributes : ['nome'],
+                    where:{
+                        nome:{
+                            [Op.iLike]: `${generoFilme}%`
+                        },
+                    }
+                  
+                },
+                {
+                    model : database.Generos,
+                    attributes : ['nome'],
+                    where:{
+                        nome:{
+                            [Op.iLike]: `${generoFilme}%`
+                        },
+                    }
+                  
+                },
+                {
+                    model : database.Atores
+                 
+                } 
+            ]
+            
+           , limit:limit,})
+    }
+
     async filmesAtores(valor, atributo, order, nomeAtor, limit){
         return await database.Filmes.findAll({
             attributes: atributo,

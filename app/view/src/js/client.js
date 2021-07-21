@@ -81,8 +81,9 @@ function buscar(url, attributes) {
             timeout: 100000000000,
             success: function(result) {
                 $('.teste').empty()
+                console.log(result)
                 let tabelaHead = Object.keys(result[0])
-                
+                console.log(result)
                 tabelaHead.forEach((item)=>{
                     $('.tabelaTitulo').append(`
                             <th>${item}</th>
@@ -127,31 +128,54 @@ function buscar(url, attributes) {
     });
 }
 
+const BASE_URL = 'http://localhost:3242'
+
 function realizarBusca(){
 
     const attributes = checkAtributos()
     let url = '';
-    
+
     if(attributes[1].includes('produtoraNome') && attributes[2].includes('generoNome')){
-        url = 'http://localhost:3242/buscarFilmesGenerosProdutoras';
+        url = `${BASE_URL}/buscarFilmesGenerosProdutoras`;
     }else if(attributes[1].includes('produtoraNome')){
-        url = 'http://localhost:3242/buscarFilmesProdutoras';
-    } else if(attributes[2].includes('generoNome')){
-        url = 'http://localhost:3242/buscarFilmesGeneros';
+        url = `${BASE_URL}/buscarFilmesProdutoras`;
+    }else if(attributes[2].includes('generoNome')){
+        url = `${BASE_URL}/buscarFilmesGeneros`;
     }else if(attributes[3].includes('atoresNome')){
-        url = 'http://localhost:3242/buscarFilmesAtores';
+        url = `${BASE_URL}/buscarFilmesAtores`;
     }else{
-        url = 'http://localhost:3242/buscarTodosOsFilmes'; 
+        url = `${BASE_URL}/buscarTodosOsFilmes`; 
     }
 
+    if(attributes[0].length === 0 && attributes[1].length === 0&& 
+        attributes[2].length === 0 && attributes[3].length > 0 ){
+        url = `${BASE_URL}/buscarAtores`
+    }
+    // const attributes = [filmes, produtoras, generos, atores]
+    if(attributes[0].length !== 0 && attributes[1].length === 0 && 
+        attributes[2].length !== 0 && attributes[3].length !== 0 ){
+        url = `${BASE_URL}/buscarFilmesGenerosAtores`
+    } 
+
+    if(attributes[0].length !== 0 && attributes[1].length !== 0 && 
+        attributes[2].length === 0 && attributes[3].length !== 0 ){
+        url = `${BASE_URL}/buscarFilmesProdutorasAtores`
+    } 
+
+    if(attributes[0].length !== 0 && attributes[1].length !== 0 && 
+        attributes[2].length !== 0 && attributes[3].length !== 0 ){
+        url = `${BASE_URL}/buscarFilmesGenerosProdutorasAtores`
+    } 
+
+
+
+    console.log(url)
     buscar(url, attributes)
 }
 
-// produtoras
-// generos
-// atores
+// produtoras - não tem necessidade de ter
+// generos - não tem necessidade de ter
 
 
-// filmes generos atores
 // filmes atores produtoras
 // filmes produtoras generos atores
