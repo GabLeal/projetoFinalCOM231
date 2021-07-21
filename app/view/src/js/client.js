@@ -79,49 +79,68 @@ function buscar(url, attributes) {
             dataType: "json",
             cache: false,
             timeout: 100000000000,
-            success: function(result) {
-                $('.teste').empty()
-                console.log(result)
-                let tabelaHead = Object.keys(result[0])
-                console.log(result)
-                tabelaHead.forEach((item)=>{
-                    $('.tabelaTitulo').append(`
-                            <th>${item}</th>
-                    `)
-                })
+            beforeSend: function() {
+                $('#corpo').hide();
+                $('#spinner').show();
+                console.log('ANTES DE FAZER CHAMADA')
+             },
+             complete: function(){
+                console.log('FINALIZOU REQUEST')
+                setTimeout(() => { 
+                    $('#corpo').show();
+                    $('#spinner').hide();
+                }, 300);
                 
-                //cria as linhas da coluna
-                result.forEach((filme)=>{
-
-                    var elemento = document.createElement('tr');
-                    elemento.classList.add("teste");
-
-                    
+             },
+            success: function(result) {
+        
+                    $('.teste').empty()
+                    console.log(result)
+                    let tabelaHead = Object.keys(result[0])
+                    console.log(result)
                     tabelaHead.forEach((item)=>{
-                       
-                        var td = document.createElement('td');
-                        if(typeof filme[item] === 'object'){
-                         
-                            filme[item].forEach((i)=>{
-                                td.innerHTML += `${i.nome}, `
-                            })
-                            
-                            td.innerHTML =  td.innerHTML.slice(0, -2) + '.';
-
-                        }else{
-                            td.innerHTML = filme[item]
-                        }
-                      
-                        elemento.appendChild(td)
-                      
+                        $('.tabelaTitulo').append(`
+                                <th>${item}</th>
+                        `)
                     })
+                    
+                    //cria as linhas da coluna
+                    result.forEach((filme)=>{
+    
+                        var elemento = document.createElement('tr');
+                        elemento.classList.add("teste");
+    
+                        
+                        tabelaHead.forEach((item)=>{
+                           
+                            var td = document.createElement('td');
+                            if(typeof filme[item] === 'object'){
+                             
+                                filme[item].forEach((i)=>{
+                                    td.innerHTML += `${i.nome}, `
+                                })
+                                
+                                td.innerHTML =  td.innerHTML.slice(0, -2) + '.';
+    
+                            }else{
+                                td.innerHTML = filme[item]
+                            }
+                          
+                            elemento.appendChild(td)
+                          
+                        })
+    
+                        $('tbody').append(elemento)
+    
+                    })
+                
 
-                    $('tbody').append(elemento)
 
-                })
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert('error ' + textStatus + " " + errorThrown);
+                    $('#corpo').show();
+                    $('#spinner').hide();
                 }
 
         });

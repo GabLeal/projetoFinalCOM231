@@ -48,7 +48,12 @@
         </div>
         <!--Container Main start-->
 
-            <div class="Conatiner">
+            <div id="spinner">
+               <div class="container-loading">
+                    <img src="/images/loading.gif" alt="">
+               </div>
+            </div>
+            <div id="corpo" class="Conatiner">
     
                 <div id="filmes" class="container conteudo">    
                     <div class="pesquisarNome row">
@@ -273,6 +278,8 @@
     <script  src="/scripts/dashboard.js"></script>
 
     <script>
+        $('#corpo').show();
+        $('#spinner').hide();
         $(function() {
             $( "#dataInicial" ).datepicker({
                 dateFormat: 'dd-mm-yy', 

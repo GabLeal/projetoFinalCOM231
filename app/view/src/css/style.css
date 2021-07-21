@@ -237,4 +237,20 @@ table {
     display: none;
 }
 
+/* loading */
+#spinner {
+
+    height: 100vh;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    position: relative;
+    padding: 50px;
+}
+
+/* #spinner .container-loading img {
+    width: 70px;
+} */
 

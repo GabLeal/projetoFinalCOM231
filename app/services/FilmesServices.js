@@ -8,6 +8,34 @@ class FilmesServices extends Services{
         super('Filmes')
     }
 
+    async buscarTodosOsFilmes(valor,atributo, order, limit = 10, nota,dataPesquisa){ 
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
+
+        return database[this.nomeDoModelo].findAll(
+        {
+            
+            attributes: atributo,
+            limit: limit,
+            order: [
+               [`${order}`, 'DESC'],
+            ],
+            where: {
+                nome:{
+                    [Op.iLike]: `${valor}%`
+                },
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
+            }
+        }
+        )
+    }
+
     async filmesGeneros(valor, atributo, order,generoFilme, limit, nota, dataPesquisa){
         if(nota === '' || nota === null){
             nota = 0;
@@ -32,7 +60,6 @@ class FilmesServices extends Services{
             include: [
                 {
                     model : database.Generos,
-                    
                     attributes : ['nome'],
                     where:{
                         nome:{
@@ -41,12 +68,13 @@ class FilmesServices extends Services{
                     }
                   
                 },
-            ]
-            
-           , limit:limit})
+            ], limit:limit})
     }
 
-    async filmesProdutoras(valor, atributo, order,nomeProdutora,limit){
+    async filmesProdutoras(valor, atributo, order,nomeProdutora,limit, nota, dataPesquisa){
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
         return await database.Filmes.findAll({
             attributes: atributo,
             order: [
@@ -56,7 +84,12 @@ class FilmesServices extends Services{
                 nome:{
                     [Op.iLike]: `${valor}%`
                 },
-                
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
             },
             include: [   
                 {
@@ -111,7 +144,12 @@ class FilmesServices extends Services{
            , limit:limit,})
     }
 
-    async buscarFilmesGenerosAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+    async buscarFilmesGenerosAtores(valor, atributo, order, generoFilme, nomeProdutora, limit,nota, dataPesquisa){
+     
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
+
         return await database.Filmes.findAll({
             attributes: atributo,
             order: [
@@ -121,6 +159,12 @@ class FilmesServices extends Services{
                 nome:{
                     [Op.iLike]: `${valor}%`
                 },
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
             },
             include: [   
                 {
@@ -246,17 +290,25 @@ class FilmesServices extends Services{
            , limit:limit,})
     }
 
-    async filmesAtores(valor, atributo, order, nomeAtor, limit){
+    async filmesAtores(valor, atributo, order, nomeAtor, limit, nota, dataPesquisa){
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
         return await database.Filmes.findAll({
             attributes: atributo,
             order: [
                 [`${order}`, 'DESC'],
              ],
-            where: {
+             where: {
                 nome:{
                     [Op.iLike]: `${valor}%`
                 },
-                
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
             },
             include: [   
                 {

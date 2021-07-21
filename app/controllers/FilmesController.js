@@ -18,8 +18,8 @@ class FilmesController{
 
     async filmesAtores(req, res){
         try {
-            const {valor,atributo, order, nomeAtor, limit} = req.query
-            const resultado = await FilmesServices.filmesAtores(valor,atributo[0], order,'', limit)
+            const {valor,atributo, order, nomeAtor, limit, nota, dataPesquisa} = req.query
+            const resultado = await FilmesServices.filmesAtores(valor,atributo[0], order,'', limit, nota, dataPesquisa)
             
             return res.json(resultado)
 
@@ -31,8 +31,8 @@ class FilmesController{
 
     async filmesProdutoras(req, res){
         try {
-            const {valor, atributo, order, nomeProdutora, limit} = req.query
-            const resultado = await FilmesServices.filmesProdutoras(valor, atributo[0], order, nomeProdutora, limit)
+            const {valor, atributo, order, nomeProdutora, limit, nota, dataPesquisa} = req.query
+            const resultado = await FilmesServices.filmesProdutoras(valor, atributo[0], order, nomeProdutora, limit, nota, dataPesquisa)
             
             return res.json(resultado)
 
@@ -59,7 +59,7 @@ class FilmesController{
     async buscarFilmesGenerosAtores(req, res){
         try {
             const {valor,atributo,order, generoFilme, limit, nota, dataPesquisa} = req.query;
-            const resultado = await FilmesServices.buscarFilmesGenerosAtores(valor, atributo[0], order, generoFilme, '', limit)
+            const resultado = await FilmesServices.buscarFilmesGenerosAtores(valor, atributo[0], order, generoFilme, '', limit, nota, dataPesquisa)
             
             return res.json(resultado)
 
@@ -96,9 +96,10 @@ class FilmesController{
     }
 
     async buscarTodosOsFilmes(req, res){
+        console.log(req.query)
         try {
-            const {valor,atributo, order, limit} = req.query
-            const resultado = await FilmesServices.buscarTodos(valor,atributo[0], order, limit)
+            const {valor,atributo, order, limit, nota, dataPesquisa} = req.query
+            const resultado = await FilmesServices.buscarTodosOsFilmes(valor,atributo[0], order, limit, nota, dataPesquisa)
             
             return res.json(resultado)
 
