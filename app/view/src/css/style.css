@@ -250,7 +250,10 @@ table {
     padding: 50px;
 }
 
-/* #spinner .container-loading img {
-    width: 70px;
-} */
+.container-button {
+    width: 100%;
+}
 
+.btn-primary{
+    width: 100%;
+}

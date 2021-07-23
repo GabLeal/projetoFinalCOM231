@@ -18,7 +18,8 @@ app.get('/buscarAtores', async (req, res)=>{
 
   const {valor,attributes,limit} = req.query;
   const filmes = await AtoresController.buscarTodosOsAtores(valor,attributes,limit)
-   return res.json(filmes)
+
+  return res.json(filmes)
   
 })
 

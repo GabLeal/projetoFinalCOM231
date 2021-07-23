@@ -93,11 +93,10 @@ function buscar(url, attributes) {
                 
              },
             success: function(result) {
-        
+                  
                     $('.teste').empty()
-                    console.log(result)
+                    
                     let tabelaHead = Object.keys(result[0])
-                    console.log(result)
                     tabelaHead.forEach((item)=>{
                         $('.tabelaTitulo').append(`
                                 <th>${item}</th>
@@ -106,21 +105,22 @@ function buscar(url, attributes) {
                     
                     //cria as linhas da coluna
                     result.forEach((filme)=>{
-    
+                        
                         var elemento = document.createElement('tr');
                         elemento.classList.add("teste");
     
                         
                         tabelaHead.forEach((item)=>{
-                           
                             var td = document.createElement('td');
                             if(typeof filme[item] === 'object'){
-                             
+                              if(filme[item] != null){
                                 filme[item].forEach((i)=>{
                                     td.innerHTML += `${i.nome}, `
                                 })
                                 
                                 td.innerHTML =  td.innerHTML.slice(0, -2) + '.';
+                              }
+
     
                             }else{
                                 td.innerHTML = filme[item]
@@ -138,9 +138,10 @@ function buscar(url, attributes) {
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
+                $('#corpo').show();
+                $('#spinner').hide();
                 alert('error ' + textStatus + " " + errorThrown);
-                    $('#corpo').show();
-                    $('#spinner').hide();
+             
                 }
 
         });

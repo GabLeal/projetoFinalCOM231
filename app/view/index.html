@@ -37,13 +37,13 @@
                 <div> 
                     <a href="#" class="nav_logo "> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">COM321</span> </a>
                     <div class="nav_list"> 
-                        <a href="#" class="nav_link Dashboard active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
-                        <a href="#" class="nav_link Filmes"> <i class='bx bx-user nav_icon '></i> <span class="nav_name">Filmes</span> </a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Generos</span> </a> 
+                        <a href="#" class="nav_link Dashboard active"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>  <span class="nav_name">Dashboard</span> </a> 
+                        <a href="#" class="nav_link Filmes"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Consultas</span> </a> 
+                        <!-- <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Generos</span> </a> 
                         <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Atores</span> </a> 
                         <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Produtoras</span> </a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Atuacoes</span> </a> </div>
-                </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+                        <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Atuacoes</span> </a> </div> -->
+                <!-- </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a> -->
             </nav>
         </div>
         <!--Container Main start-->
@@ -56,66 +56,92 @@
             <div id="corpo" class="Conatiner">
     
                 <div id="filmes" class="container conteudo">    
-                    <div class="pesquisarNome row">
+                    <div class="pesquisarNome col">
+                        <p>Nome do filme</p>
                         <input type="text" name="enter" class="enter form-control col" value="" id="lolz"/>
-                        <input class="col-3"type="button" value="Buscar" onclick="realizarBusca()"/>
+                        
                     </div>
     
                 
-                    <div class="atributosDaTabela ">
+                    <div class="atributosDaTabela">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="idCheck" value="idfilme">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="idCheck" value="idfilme">
                             <label class="form-check-label" for="inlineCheckbox2">id</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="nomeCheck" value="nome">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="nomeCheck" value="nome">
                             <label class="form-check-label" for="inlineCheckbox1">nome</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="descricaoCheck" value="descricao">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="descricaoCheck" value="descricao">
                             <label class="form-check-label" for="inlineCheckbox1">descrição</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="datalancamentoCheck" value="datalancamento">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="datalancamentoCheck" value="datalancamento">
                             <label class="form-check-label" for="inlineCheckbox1">data de lançamento</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="duracaoCheck" value="duracao">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="duracaoCheck" value="duracao">
                             <label class="form-check-label" for="inlineCheckbox1">duraçao</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="linguagemCheck" value="linguagemoriginal">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="linguagemCheck" value="linguagemoriginal">
                             <label class="form-check-label" for="inlineCheckbox1">lingugem</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="orcamentoCheck" value="orcamento">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="orcamentoCheck" value="orcamento">
                             <label class="form-check-label" for="inlineCheckbox1">orçamento</label>
                         </div>
                 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="notaCheck" value="nota">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="notaCheck" value="nota">
                             <label class="form-check-label" for="inlineCheckbox1">nota</label>
                         </div>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="produtoraCheck" value="produtoraNome">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="produtoraCheck" value="produtoraNome">
                             <label class="form-check-label" for="inlineCheckbox1">produtora</label>
                         </div>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="generoCheck" value="generoNome">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="generoCheck" value="generoNome">
                             <label class="form-check-label" for="inlineCheckbox1">genero</label>
                         </div>
 
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="atoresCheck" value="atoresNome">
                             <label class="form-check-label" for="inlineCheckbox1">atores</label>
+                        </div>
+                        <!-- Check para atores- apenas quando unico check marcado é o de "atores" -->
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input" type="checkbox" id="nomeAtoreCheck" value="nome">
+                            <label class="form-check-label" for="inlineCheckbox1">nome</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input" type="checkbox" id="aniversarioAtoreCheck" value="atoresNome">
+                            <label class="form-check-label" for="inlineCheckbox1">aniversario</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input" type="checkbox" id="areaAtoreCheck" value="atoresNome">
+                            <label class="form-check-label" for="inlineCheckbox1">area</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input" type="checkbox" id="popularidadeAtoresCheck" value="atoresNome">
+                            <label class="form-check-label" for="inlineCheckbox1">popularidade</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input" type="checkbox" id="bibliografiaAtoresCheck" value="atoresNome">
+                            <label class="form-check-label" for="inlineCheckbox1">bibliografia</label>
                         </div>
                         
                         <div class="row">
@@ -181,48 +207,36 @@
                         </div>
                     <div class="">
                         <div class="row">
-                            <div class="py-2 col">
+                            <div class="py-2 col-4">
                                 <p>Nota MAIOR que:</p>
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-4">
                                     <input id="notaValor" value="" type="text" class="form-control" />
                                 </div>
                             </div>
-                            <div class="py-2 col">
-                                <p>Nota MENOR:</p>
-                                <div class="input-group mb-3">
-                                    <input id="majorNoteSelected" type="text" class="form-control" />
+
+                            <div class="py-2 col-4">
+                                <p>Data Inicial:</p>
+                                <div class="input-group mb-4">
+                                    <input type="text" class="form-control" id="dataInicial" />
+                                </div>
+                               
+                            </div>
+                            <div class="py-2 col-4">
+                                <p>Data Final:</p> 
+                                <div class="input-group mb-4">
+                                    <input type="text" class="form-control" id="dataFinal" />
                                 </div>
                             </div>
-                
-                            <div class="py-2 col">
-                                <p>Orçamento MAIOR que:</p>
-                                <div class="input-group mb-3">
-                                    <input id="majorNoteSelected" type="text" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="py-2 col">
-                                <p>Orçamento MENOR que:</p>
-                                <div class="input-group mb-3">
-                                    <input id="majorNoteSelected" type="text" class="form-control" />
-                                </div>
-                            </div>
+
                         </div>
                         
                     </div>
-                
-                    <div class="">
-                        <div class="row">
-                            
+                                    
+                    <div class="py-2 container-button">
+                        <input class="btn btn-primary btn-block" type="button" value="Buscar" onclick="realizarBusca()"/>
+                    </div>    
 
-                            <div class="py-2 col-3">
-                                <p>Data Inicial: <input type="text" class="form-control" id="dataInicial" /></p>
-                            </div>
-                            <div class="py-2 col-3">
-                                <p>Data Final: <input type="text" class="form-control" id="dataFinal" /></p>
-                            </div>
-                        </div>
-                    </div>
-                    
+
                     <div class="wrapper">
                         <table id="#tabela"> 
                             <thead id="#tabelaHead">
@@ -276,6 +290,28 @@
     <script  src="/scripts/navbar.js"></script>
     <script  src="/scripts/client.js"></script>
     <script  src="/scripts/dashboard.js"></script>
+
+    <!-- verificar se apenas atores esta marcado -->
+    <script>
+        $('.atorEscolha').hide();
+        $('.form-check-inline').click(function () {
+            const checkAtor = document.getElementById('atoresCheck')
+            var checkItem = document.querySelectorAll('.check-global-atributos');
+            let count = 0
+
+            for (let atributo of checkItem) {
+                if(atributo.checked){
+                    count++
+                }
+            }
+     
+            if(checkAtor.checked && count == 0){
+                $('.atorEscolha').show();
+            }else{
+                $('.atorEscolha').hide();
+            }
+        })
+    </script>
 
     <script>
         $('#corpo').show();

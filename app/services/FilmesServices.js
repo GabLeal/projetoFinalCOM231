@@ -107,7 +107,12 @@ class FilmesServices extends Services{
            , limit:limit,})
     }
 
-    async filmesGenerosProdutoras(valor, atributo, order, generoFilme, nomeProdutora, limit){
+    async filmesGenerosProdutoras(valor, atributo, order, generoFilme, nomeProdutora, limit, nota, dataPesquisa){
+             
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
+
         return await database.Filmes.findAll({
             attributes: atributo,
             order: [
@@ -117,6 +122,12 @@ class FilmesServices extends Services{
                 nome:{
                     [Op.iLike]: `${valor}%`
                 },
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
             },
             include: [   
                 {
@@ -186,7 +197,12 @@ class FilmesServices extends Services{
            , limit:limit,})
     }
 
-    async buscarFilmesProdutorasAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+    async buscarFilmesProdutorasAtores(valor, atributo, order, nomeProdutora, limit, nota, dataPesquisa){
+        
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
+
         return await database.Filmes.findAll({
             attributes: atributo,
             order: [
@@ -196,6 +212,12 @@ class FilmesServices extends Services{
                 nome:{
                     [Op.iLike]: `${valor}%`
                 },
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
             },
             include: [   
                 {
@@ -203,7 +225,7 @@ class FilmesServices extends Services{
                     attributes : ['nome'],
                     where:{
                         nome:{
-                            [Op.iLike]: `${generoFilme}%`
+                            [Op.iLike]: `${nomeProdutora}%`
                         },
                     }
                   
@@ -217,7 +239,11 @@ class FilmesServices extends Services{
            , limit:limit,})
     }
 
-    async buscarFilmesProdutorasGenerosAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
+    async filmesGenerosProdutorasAtores(valor, atributo, order, generoFilme, nomeProdutora, limit, nota, dataPesquisa){
+        if(nota === '' || nota === null){
+            nota = 0;
+        }
+        
         return await database.Filmes.findAll({
             attributes: atributo,
             order: [
@@ -227,6 +253,12 @@ class FilmesServices extends Services{
                 nome:{
                     [Op.iLike]: `${valor}%`
                 },
+                nota:{
+                    [Op.gte]: nota
+                },
+                datalancamento :{
+                   [Op.between]: [dataPesquisa.dataInicial, dataPesquisa.dataFinal],
+                }
             },
             include: [   
                 {
@@ -234,39 +266,7 @@ class FilmesServices extends Services{
                     attributes : ['nome'],
                     where:{
                         nome:{
-                            [Op.iLike]: `${generoFilme}%`
-                        },
-                    }
-                  
-                },
-                {
-                    model : database.Atores
-                 
-                } 
-            ]
-            
-           , limit:limit,})
-    }
-
-
-    async filmesGenerosProdutorasAtores(valor, atributo, order, generoFilme, nomeProdutora, limit){
-        return await database.Filmes.findAll({
-            attributes: atributo,
-            order: [
-                [`${order}`, 'DESC'],
-            ],
-            where: {
-                nome:{
-                    [Op.iLike]: `${valor}%`
-                },
-            },
-            include: [   
-                {
-                    model : database.Produtoras,
-                    attributes : ['nome'],
-                    where:{
-                        nome:{
-                            [Op.iLike]: `${generoFilme}%`
+                            [Op.iLike]: `${nomeProdutora}%`
                         },
                     }
                   
@@ -285,9 +285,8 @@ class FilmesServices extends Services{
                     model : database.Atores
                  
                 } 
-            ]
-            
-           , limit:limit,})
+            ], 
+            limit:limit,})
     }
 
     async filmesAtores(valor, atributo, order, nomeAtor, limit, nota, dataPesquisa){

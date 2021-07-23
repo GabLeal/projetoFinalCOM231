@@ -44,9 +44,9 @@ class FilmesController{
 
     async filmesGenerosProdutoras(req, res){
         try {
-            const {valor,atributo,order, generoFilme, nomeProdutora, limit} = req.query;
-            console.log(nomeProdutora)
-            const resultado = await FilmesServices.filmesGenerosProdutoras(valor, atributo[0], order, generoFilme, nomeProdutora, limit)
+            const {valor,atributo,order, generoFilme, nomeProdutora, limit, nota, dataPesquisa} = req.query;
+
+            const resultado = await FilmesServices.filmesGenerosProdutoras(valor, atributo[0], order, generoFilme, nomeProdutora, limit, nota, dataPesquisa)
             
             return res.json(resultado)
 
@@ -71,8 +71,8 @@ class FilmesController{
 
     async buscarFilmesProdutorasAtores(req, res){
         try {
-            const {valor,atributo,order, generoFilme, limit, nota, dataPesquisa} = req.query;
-            const resultado = await FilmesServices.buscarFilmesProdutorasAtores(valor, atributo[0], order, generoFilme, '', limit)
+            const {valor,atributo,order, nomeProdutora, limit, nota, dataPesquisa} = req.query;
+            const resultado = await FilmesServices.buscarFilmesProdutorasAtores(valor, atributo[0], order, nomeProdutora, limit, nota, dataPesquisa)
             
             return res.json(resultado)
 
@@ -84,8 +84,8 @@ class FilmesController{
 
     async filmesGenerosProdutorasAtores(req, res){
         try {
-            const {valor,atributo,order, generoFilme, nomeProdutora, limit} = req.query;
-            const resultado = await FilmesServices.filmesGenerosProdutorasAtores(valor, atributo[0], order, generoFilme, nomeProdutora, limit)
+            const {valor,atributo,order, generoFilme, nomeProdutora, limit, nota, dataPesquisa} = req.query;
+            const resultado = await FilmesServices.filmesGenerosProdutorasAtores(valor, atributo[0], order, generoFilme, nomeProdutora, limit, nota, dataPesquisa)
             
             return res.json(resultado)
 

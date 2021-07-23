@@ -52,7 +52,7 @@ function popularGraficoBarra(grafico,rota){
                 result.quantidadeAtores.forEach((quantidade)=>{
                     grafico.data.datasets.forEach((dataset) => {
                         dataset.data.push(quantidade);
-                        dataset.backgroundColor.push(gerar_cor_hexadecimal());
+                        dataset.backgroundColor.push('#0062FF');
                     })
 
                   
