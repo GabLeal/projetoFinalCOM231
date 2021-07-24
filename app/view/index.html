@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+
+    <!-- date picker -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <div> <h3>Trabalho Final COM231 - Banco de dados II</h3></div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> 
+                    <a href="#" class="nav_logo "> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">COM321</span> </a>
+                    <div class="nav_list"> 
+                        <a href="#" class="nav_link Dashboard active"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>  <span class="nav_name">Dashboard</span> </a> 
+                        <a href="#" class="nav_link Filmes"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Consultas</span> </a> 
+                        <!-- <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Generos</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Atores</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Produtoras</span> </a> 
+                        <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Atuacoes</span> </a> </div> -->
+                <!-- </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a> -->
+            </nav>
+        </div>
+        <!--Container Main start-->
+
+            <div id="spinner">
+               <div class="container-loading">
+                    <img src="/images/loading.gif" alt="">
+               </div>
+            </div>
+            <div id="corpo" class="Conatiner">
+    
+                <div id="filmes" class="container conteudo">    
+                    <div class="pesquisarNome col">
+                        <p>Nome do filme</p>
+                        <input type="text" name="enter" class="enter form-control col" value="" id="lolz"/>
+                        
+                    </div>
+    
+                
+                    <div class="atributosDaTabela">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="idCheck" value="idfilme">
+                            <label class="form-check-label" for="inlineCheckbox2">id</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="nomeCheck" value="nome">
+                            <label class="form-check-label" for="inlineCheckbox1">nome</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="descricaoCheck" value="descricao">
+                            <label class="form-check-label" for="inlineCheckbox1">descrição</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="datalancamentoCheck" value="datalancamento">
+                            <label class="form-check-label" for="inlineCheckbox1">data de lançamento</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="duracaoCheck" value="duracao">
+                            <label class="form-check-label" for="inlineCheckbox1">duraçao</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="linguagemCheck" value="linguagemoriginal">
+                            <label class="form-check-label" for="inlineCheckbox1">lingugem</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="orcamentoCheck" value="orcamento">
+                            <label class="form-check-label" for="inlineCheckbox1">orçamento</label>
+                        </div>
+                
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="notaCheck" value="nota">
+                            <label class="form-check-label" for="inlineCheckbox1">nota</label>
+                        </div>
+
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="produtoraCheck" value="produtoraNome">
+                            <label class="form-check-label" for="inlineCheckbox1">produtora</label>
+                        </div>
+
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input check-global-atributos" type="checkbox" id="generoCheck" value="generoNome">
+                            <label class="form-check-label" for="inlineCheckbox1">genero</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="atoresCheck" value="atoresNome">
+                            <label class="form-check-label" for="inlineCheckbox1">atores</label>
+                        </div>
+                        <!-- Check para atores- apenas quando unico check marcado é o de "atores" -->
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="nomeAtoreCheck" value="nome">
+                            <label class="form-check-label" for="inlineCheckbox1">nome</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="aniversarioAtoreCheck" value="aniversario">
+                            <label class="form-check-label" for="inlineCheckbox1">aniversario</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="areaAtoreCheck" value="area">
+                            <label class="form-check-label" for="inlineCheckbox1">area</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="popularidadeAtoresCheck" value="popularidade">
+                            <label class="form-check-label" for="inlineCheckbox1">popularidade</label>
+                        </div>
+
+                        <div class="form-check form-check-inline atorEscolha">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="bibliografiaAtoresCheck" value="bibliografia">
+                            <label class="form-check-label" for="inlineCheckbox1">bibliografia</label>
+                        </div>
+
+                        <div class="atorEscolha row">
+                            <div id="buscarAtor" class="py-2 col">
+                                <p>Nome da ator</p>
+                                <input type="text" name="enter" class="enter form-control c" value="" id="nomeAtor"/>
+                            </div>
+                            <div class="py-2 col-4">
+                                <p>Popularidade maior que:</p>
+                                <div class="input-group mb-4">
+                                    <input id="popularidadeValor" value="" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col py-2">
+                                <p>Ordenar por:</p>
+                                <select id="orderBySelectAtor" class="form-select form-select-md" aria-label=".form-select-sm example">
+                                    <option selected value="idator">idAtor</option>
+                                    <option value="nome">nome</option>
+                                    <option value="aniversario">aniversario</option>
+                                    <option value="area">area</option>
+                                    <option value="popularidade">popularidade</option>
+                                    <option value="bibliografia">bibliografia</option>
+                                </select>
+                            </div>
+                        
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col py-2">
+                                <p>Ordenar por:</p>
+                                <select id="orderBySelect" class="form-select form-select-md" aria-label=".form-select-sm example">
+                                
+                                    <option selected value="idfilme">idfilme</option>
+                                    <option value="nome">nome</option>
+                                    <option value="descricao">descricao</option>
+                                    <option value="datalancamento">datalancamento</option>
+                                    <option value="duracao">duracao</option>
+                                    <option value="linguagemoriginal">linguagemoriginal</option>
+                                    <option value="orcamento">orcamento</option>
+                                    <option value="nota">nota</option>
+                                </select>
+                            </div>
+                            <div class="col py-2">
+                                <p>Quantidade de dados:</p>
+                                <select id="limit" class="form-select form-select-md" aria-label=".form-select-sm example">
+                                
+                                    <option selected value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                    <option value="400">400</option>
+                                    <option value="500">500</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="selecioneGenero" class="py-2">
+                            <p>Apenas filmes com o genero:</p>
+                            <select id="selectGenero" class="form-select form-select-md" aria-label=".form-select-sm example">
+                            
+                                <option selected value="">Qualquer genero</option>
+                                <option value="Action">Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Documentary">Documentary</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Family">Family</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="History">History</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Music">Music</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="TV Movie">TV Movie</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="War">War</option>
+                                <option value="Western">Western</option>
+                            </select>
+                        </div>
+                        <div id="buscarProdutora" class="py-2">
+                            <p>Nome da produtora</p>
+                            <input type="text" name="enter" class="enter form-control c" value="" id="nomeProdutora"/>
+                        </div>
+                        </div>
+
+                    <div class="">
+                        <div class="row">
+                            <div class="py-2 col-4">
+                                <p>Nota MAIOR que:</p>
+                                <div class="input-group mb-4">
+                                    <input id="notaValor" value="" type="text" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="py-2 col-4">
+                                <p>Data Inicial:</p>
+                                <div class="input-group mb-4">
+                                    <input type="text" class="form-control" id="dataInicial" />
+                                </div>
+                               
+                            </div>
+                            <div class="py-2 col-4">
+                                <p>Data Final:</p> 
+                                <div class="input-group mb-4">
+                                    <input type="text" class="form-control" id="dataFinal" />
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                                    
+                    <div class="py-2 container-button">
+                        <input class="btn btn-primary btn-block" type="button" value="Buscar" onclick="realizarBusca()"/>
+                    </div>    
+
+
+                    <div class="wrapper">
+                        <table id="#tabela"> 
+                            <thead id="#tabelaHead">
+                                <tr class="teste tabelaTitulo">
+                                    <th>idfilme</th>
+                                    <th>nome</th>
+                                    <th>descricao</th>
+                                    <th>datalancamento</th>
+                                    <th>duracao</th>
+                                    <th>linguagemoriginal</th>
+                                    <th>orcamento</th>
+                                    <th>nota</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div> 
+            </div>
+    <!--Container Main end-->
+
+    
+    <!-- TEMPLATE DASHBOARD -->
+        <div id="dashboard" class="conteudo">
+           <h2>Dashboard</h2>
+             <div class="chart-container">
+                <canvas class="line-chart" width="500" height="100%"></canvas>
+             </div>
+
+             <div class="chart-container ">
+                <canvas class="pie-chart"  width="100%" ></canvas>
+             </div>
+
+             <div class="chart-container">
+                <canvas class="produtoras-chart" width="500" height="100%"></canvas>
+             </div>
+
+
+             <div class="chart-container">
+                <canvas class="atuacoes-chart" width="500" height="100%"></canvas>
+             </div>
+
+             <button onclick="myFunction()">Click me</button>
+        </div>
+
+
+
+    <script  src="/scripts/navbar.js"></script>
+    <script  src="/scripts/client.js"></script>
+    <script  src="/scripts/dashboard.js"></script>
+
+    <!-- verificar se apenas atores esta marcado -->
+    <script>
+        $('.atorEscolha').hide();
+        $('.form-check-inline').click(function () {
+            const checkAtor = document.getElementById('atoresCheck')
+            var checkItem = document.querySelectorAll('.check-global-atributos');
+            let count = 0
+
+            for (let atributo of checkItem) {
+                if(atributo.checked){
+                    count++
+                }
+            }
+     
+            if(checkAtor.checked && count == 0){
+                $('.atorEscolha').show();
+            }else{
+                $('.atorEscolha').hide();
+                $('.check-ator-atributo').removeAttr('checked');
+            }
+        })
+    </script>
+
+    <script>
+        $('#corpo').show();
+        $('#spinner').hide();
+        $(function() {
+            $( "#dataInicial" ).datepicker({
+                dateFormat: 'dd-mm-yy', 
+                changeMonth: true,
+                changeYear: true,
+                minDate: new Date(1990, 1 - 1, 1)
+            });
+        });
+
+        $(function() {
+            $( "#dataFinal" ).datepicker({
+                dateFormat: 'dd-mm-yy', 
+                changeMonth: true,
+                changeYear: true,
+                minDate: new Date(1990, 1 - 1, 1)
+            });
+        });
+
+    </script>
+
+    <script>
+        $('.Dashboard').click(function () {
+            document.getElementById('dashboard').style.display = "block";
+            document.getElementById('filmes').style.display = "none";
+        });
+
+        $('.Filmes').click(function () {
+            document.getElementById('dashboard').style.display = "none";
+            document.getElementById('filmes').style.display = "block";
+        });
+        
+        document.getElementById('dashboard').style.display = "block";
+        document.getElementById('filmes').style.display = "none";
+    
+        //CHECK Genero is true
+        $('#generoCheck').click(function () {
+            const checkItem = document.getElementById('generoCheck');
+            const genero = document.getElementById('selecioneGenero');
+
+            if(checkItem.checked){
+               
+                genero.style.display = 'block';
+            }else{
+                genero.style.display = 'none';
+            }
+           
+        });
+
+        //CHECK produtora is true
+        $('#produtoraCheck').click(function () {
+            const checkItem = document.getElementById('produtoraCheck');
+            const produtora = document.getElementById('buscarProdutora');
+
+            if(checkItem.checked){
+               
+                produtora.style.display = 'block';
+            }else{
+                produtora.style.display = 'none';
+            }
+           
+        });
+
+    </script>
+     <script src="@@path/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+</body>
+</html>

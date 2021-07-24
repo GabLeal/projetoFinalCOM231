@@ -5,17 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app/main.js"
+    "start": "nodemon app/main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "config": "^3.3.6",
+    "express": "^4.17.1",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "pg": "^8.6.0",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0"

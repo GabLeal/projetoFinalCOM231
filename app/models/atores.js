@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Atores.belongsToMany(models.Filmes,{
         through: 'atuacoes',
-        foreignKey: 'idautor'
+        foreignKey: 'idator'
       })
       // define association here
     }

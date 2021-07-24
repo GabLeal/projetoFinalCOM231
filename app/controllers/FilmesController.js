@@ -3,6 +3,163 @@ const dataBase = require('../models')
 const { FilmesServices, AtuacoesServices } = require('../services')
 class FilmesController{
 
+    async filmesGeneros(req, res){
+        try {
+            const {valor,atributo,order, generoFilme, limit, nota, dataPesquisa} = req.query;
+            const resultado = await FilmesServices.filmesGeneros(valor,atributo[0], order,generoFilme, limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesAtores(req, res){
+        try {
+            const {valor,atributo, order, nomeAtor, limit, nota, dataPesquisa} = req.query
+            const resultado = await FilmesServices.filmesAtores(valor,atributo[0], order,'', limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesProdutoras(req, res){
+        try {
+            const {valor, atributo, order, nomeProdutora, limit, nota, dataPesquisa} = req.query
+            const resultado = await FilmesServices.filmesProdutoras(valor, atributo[0], order, nomeProdutora, limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesGenerosProdutoras(req, res){
+        try {
+            const {valor,atributo,order, generoFilme, nomeProdutora, limit, nota, dataPesquisa} = req.query;
+
+            const resultado = await FilmesServices.filmesGenerosProdutoras(valor, atributo[0], order, generoFilme, nomeProdutora, limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async buscarFilmesGenerosAtores(req, res){
+        try {
+            const {valor,atributo,order, generoFilme, limit, nota, dataPesquisa} = req.query;
+            const resultado = await FilmesServices.buscarFilmesGenerosAtores(valor, atributo[0], order, generoFilme, '', limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async buscarFilmesProdutorasAtores(req, res){
+        try {
+            const {valor,atributo,order, nomeProdutora, limit, nota, dataPesquisa} = req.query;
+            const resultado = await FilmesServices.buscarFilmesProdutorasAtores(valor, atributo[0], order, nomeProdutora, limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async filmesGenerosProdutorasAtores(req, res){
+        try {
+            const {valor,atributo,order, generoFilme, nomeProdutora, limit, nota, dataPesquisa} = req.query;
+            const resultado = await FilmesServices.filmesGenerosProdutorasAtores(valor, atributo[0], order, generoFilme, nomeProdutora, limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+    async buscarTodosOsFilmes(req, res){
+        console.log(req.query)
+        try {
+            const {valor,atributo, order, limit, nota, dataPesquisa} = req.query
+            const resultado = await FilmesServices.buscarTodosOsFilmes(valor,atributo[0], order, limit, nota, dataPesquisa)
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar todos os filmes')
+            console.log(error)
+        }
+    }
+
+
+    async filmesComMaisAtores(req, res){
+        try {
+            const resultado = await FilmesServices.filmesComMaisAtores()
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    async produtorasComMaisFilmes(req, res){
+        try {
+            const resultado = await FilmesServices.produtorasComMaisFilmes()
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    async atoresComMaisAtuacoes(req, res){
+        try {
+            const resultado = await FilmesServices.atoresComMaisAtuacoes()
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    async QuantidadeDeFilmesPorGenero(req, res){
+        try {
+            const resultado = await FilmesServices.QuantidadeDeFilmesPorGenero()
+            
+            return res.json(resultado)
+
+        } catch (error) {
+            console.log('Erro ao buscar filmes com mais atores')
+            console.log(error)
+        }
+    }
+
+    /// acima são coisas novas 2 entrega
+
     async cadastrarFilme(filme){
         try {
             const resultado = await FilmesServices.criar(filme)
