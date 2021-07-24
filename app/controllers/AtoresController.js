@@ -2,11 +2,12 @@ const { AtoresServices } = require('../services')
 
 class AtoresController{
 
-    async buscarTodosOsAtores(valor,atributo,limit){
+    async buscarTodosOsAtores(req, res){
         try {
-            const resultado = await AtoresServices.buscarTodos(valor,atributo,'', limit)
+            const {nomeAtor, popularidade, orderAtor, atributo,limit} = req.query;
+            const resultado = await AtoresServices.buscarTodosOsAtores(nomeAtor, popularidade,atributo, orderAtor,limit)
             
-            return resultado
+            return res.json(resultado)
 
         } catch (error) {
             console.log('Erro ao buscar todos os atores')

@@ -120,28 +120,53 @@
                         </div>
                         <!-- Check para atores- apenas quando unico check marcado é o de "atores" -->
                         <div class="form-check form-check-inline atorEscolha">
-                            <input class="form-check-input" type="checkbox" id="nomeAtoreCheck" value="nome">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="nomeAtoreCheck" value="nome">
                             <label class="form-check-label" for="inlineCheckbox1">nome</label>
                         </div>
 
                         <div class="form-check form-check-inline atorEscolha">
-                            <input class="form-check-input" type="checkbox" id="aniversarioAtoreCheck" value="atoresNome">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="aniversarioAtoreCheck" value="aniversario">
                             <label class="form-check-label" for="inlineCheckbox1">aniversario</label>
                         </div>
 
                         <div class="form-check form-check-inline atorEscolha">
-                            <input class="form-check-input" type="checkbox" id="areaAtoreCheck" value="atoresNome">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="areaAtoreCheck" value="area">
                             <label class="form-check-label" for="inlineCheckbox1">area</label>
                         </div>
 
                         <div class="form-check form-check-inline atorEscolha">
-                            <input class="form-check-input" type="checkbox" id="popularidadeAtoresCheck" value="atoresNome">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="popularidadeAtoresCheck" value="popularidade">
                             <label class="form-check-label" for="inlineCheckbox1">popularidade</label>
                         </div>
 
                         <div class="form-check form-check-inline atorEscolha">
-                            <input class="form-check-input" type="checkbox" id="bibliografiaAtoresCheck" value="atoresNome">
+                            <input class="form-check-input check-ator-atributo" type="checkbox" id="bibliografiaAtoresCheck" value="bibliografia">
                             <label class="form-check-label" for="inlineCheckbox1">bibliografia</label>
+                        </div>
+
+                        <div class="atorEscolha row">
+                            <div id="buscarAtor" class="py-2 col">
+                                <p>Nome da ator</p>
+                                <input type="text" name="enter" class="enter form-control c" value="" id="nomeAtor"/>
+                            </div>
+                            <div class="py-2 col-4">
+                                <p>Popularidade maior que:</p>
+                                <div class="input-group mb-4">
+                                    <input id="popularidadeValor" value="" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col py-2">
+                                <p>Ordenar por:</p>
+                                <select id="orderBySelectAtor" class="form-select form-select-md" aria-label=".form-select-sm example">
+                                    <option selected value="idator">idAtor</option>
+                                    <option value="nome">nome</option>
+                                    <option value="aniversario">aniversario</option>
+                                    <option value="area">area</option>
+                                    <option value="popularidade">popularidade</option>
+                                    <option value="bibliografia">bibliografia</option>
+                                </select>
+                            </div>
+                        
                         </div>
                         
                         <div class="row">
@@ -205,6 +230,7 @@
                             <input type="text" name="enter" class="enter form-control c" value="" id="nomeProdutora"/>
                         </div>
                         </div>
+
                     <div class="">
                         <div class="row">
                             <div class="py-2 col-4">
@@ -309,6 +335,7 @@
                 $('.atorEscolha').show();
             }else{
                 $('.atorEscolha').hide();
+                $('.check-ator-atributo').removeAttr('checked');
             }
         })
     </script>

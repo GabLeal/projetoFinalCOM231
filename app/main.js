@@ -14,15 +14,6 @@ app.get('/', async (req, res)=>{
     return res.sendFile(__dirname + "/view/index.html")
 })
 
-app.get('/buscarAtores', async (req, res)=>{
-
-  const {valor,attributes,limit} = req.query;
-  const filmes = await AtoresController.buscarTodosOsAtores(valor,attributes,limit)
-
-  return res.json(filmes)
-  
-})
-
 app.listen('3242')
 
 

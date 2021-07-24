@@ -20,14 +20,26 @@ function checkAtributos(){
             }else{
                 filmes.push(atributo.value)
                 
-            }
-            
+            }  
         }
     })
 
     return attributes
 }
 
+
+function checkAtributosAtores(){
+    const atributosSelecionados = []
+    const checkItem = document.querySelectorAll('.check-ator-atributo');
+
+    checkItem.forEach((atributo)=>{
+        if(atributo.checked){
+            atributosSelecionados.push(atributo.value)
+        }
+    })
+
+    return atributosSelecionados
+}
 
 function getDataAtual(){
     var dataAual = new Date();
@@ -52,8 +64,9 @@ function getInputDateBetween(){
 }
 
 function buscar(url, attributes) {
-
+    console.log(attributes)
     const orderby = document.getElementById('orderBySelect').value;
+    const orderbyAtor = document.getElementById('orderBySelectAtor').value;
     const generoFilme = document.getElementById('selectGenero').value;
     const limit = document.getElementById('limit').value;
 
@@ -73,7 +86,10 @@ function buscar(url, attributes) {
                 nomeProdutora: nomeProdutora.value,
                 limit: limit,
                 nota: notaValor.value,
-                dataPesquisa: dataSearch
+                dataPesquisa: dataSearch,
+                nomeAtor: nomeAtor.value,
+                popularidade: popularidadeValor.value,
+                orderAtor: orderbyAtor
                
             },
             dataType: "json",
@@ -93,7 +109,11 @@ function buscar(url, attributes) {
                 
              },
             success: function(result) {
-                  
+                    if(result.length == 0){
+                        alert('Nenhum registro foi encontrado. Utilize outros parametros para realizar a busa.');
+                        return
+                    }
+                   
                     $('.teste').empty()
                     
                     let tabelaHead = Object.keys(result[0])
@@ -134,8 +154,6 @@ function buscar(url, attributes) {
     
                     })
                 
-
-
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 $('#corpo').show();
@@ -151,9 +169,27 @@ function buscar(url, attributes) {
 const BASE_URL = 'http://localhost:3242'
 
 function realizarBusca(){
-
-    const attributes = checkAtributos()
+    var attributes = []
     let url = '';
+
+    const checkAtor = document.getElementById('atoresCheck')
+    var checkItem = document.querySelectorAll('.check-global-atributos');
+    let count = 0
+
+    for (let atributo of checkItem) {
+        if(atributo.checked){
+            count++
+        }
+    }
+
+    if(checkAtor.checked && count == 0){
+        url = `${BASE_URL}/buscarAtores`
+        attributes = checkAtributosAtores()
+        buscar(url, attributes)
+        return
+    }else{
+        attributes = checkAtributos()
+    }
 
     if(attributes[1].includes('produtoraNome') && attributes[2].includes('generoNome')){
         url = `${BASE_URL}/buscarFilmesGenerosProdutoras`;
@@ -186,8 +222,6 @@ function realizarBusca(){
         attributes[2].length !== 0 && attributes[3].length !== 0 ){
         url = `${BASE_URL}/buscarFilmesGenerosProdutorasAtores`
     } 
-
-
 
     console.log(url)
     buscar(url, attributes)
