@@ -335,23 +335,23 @@ class FilmesServices extends Services{
         LIMIT 20
         `, { type: database.sequelize.QueryTypes.SELECT }).then((result)=>{
  
-             var padraoGrafico = new Map()
-             var filmes = []
-             var qauntidadeAtores = []
+            var padraoGrafico = new Map()
+            var itens = []
+            var quantidade = []
+
+            result.forEach((i)=>{
+               itens.push(i.nome)
+               quantidade.push(i.quantidade)
+
+                padraoGrafico.set('itens', itens);
+                padraoGrafico.set('quantidade', quantidade);
+               
+            })
  
-             result.forEach((i)=>{
-                 filmes.push(i.nome)
-                 qauntidadeAtores.push(i.quantidade)
- 
-                 padraoGrafico.set('filmes', filmes);
-                 padraoGrafico.set('qauntidadeAtores', qauntidadeAtores);
-                
-             })
- 
-         return {
-             "filmes" : filmes,
-             "quantidadeAtores": qauntidadeAtores
-         }
+            return {
+                "itens" : itens,
+                "quantidade": quantidade
+            }
         });
         
     }
@@ -367,23 +367,23 @@ class FilmesServices extends Services{
         LIMIT 20
         `, { type: database.sequelize.QueryTypes.SELECT }).then((result)=>{
  
-             var padraoGrafico = new Map()
-             var filmes = []
-             var qauntidadeAtores = []
+            var padraoGrafico = new Map()
+            var itens = []
+            var quantidade = []
+
+            result.forEach((i)=>{
+               itens.push(i.nome)
+               quantidade.push(i.quantidade)
+
+                padraoGrafico.set('itens', itens);
+                padraoGrafico.set('quantidade', quantidade);
+               
+            })
  
-             result.forEach((i)=>{
-                 filmes.push(i.nome)
-                 qauntidadeAtores.push(i.quantidade)
- 
-                 padraoGrafico.set('filmes', filmes);
-                 padraoGrafico.set('qauntidadeAtores', qauntidadeAtores);
-                
-             })
- 
-         return {
-             "filmes" : filmes,
-             "quantidadeAtores": qauntidadeAtores
-         }
+            return {
+                "itens" : itens,
+                "quantidade": quantidade
+            }
         });
         
     }
@@ -400,22 +400,22 @@ class FilmesServices extends Services{
        `, { type: database.sequelize.QueryTypes.SELECT }).then((result)=>{
 
             var padraoGrafico = new Map()
-            var filmes = []
-            var qauntidadeAtores = []
+            var itens = []
+            var quantidade = []
 
             result.forEach((i)=>{
-                filmes.push(i.nome)
-                qauntidadeAtores.push(i.quantidade)
+            itens.push(i.nome)
+            quantidade.push(i.quantidade)
 
-                padraoGrafico.set('filmes', filmes);
-                padraoGrafico.set('qauntidadeAtores', qauntidadeAtores);
-               
+                padraoGrafico.set('itens', itens);
+                padraoGrafico.set('quantidade', quantidade);
+            
             })
 
-        return {
-            "filmes" : filmes,
-            "quantidadeAtores": qauntidadeAtores
-        }
+            return {
+                "itens" : itens,
+                "quantidade": quantidade
+            }
        });
        
     }
@@ -431,21 +431,21 @@ class FilmesServices extends Services{
         `, { type: database.sequelize.QueryTypes.SELECT }).then((result)=>{
  
              var padraoGrafico = new Map()
-             var filmes = []
-             var qauntidadeAtores = []
+             var itens = []
+             var quantidade = []
  
              result.forEach((i)=>{
-                 filmes.push(i.nome)
-                 qauntidadeAtores.push(i.quantidade)
+                itens.push(i.nome)
+                quantidade.push(i.quantidade)
  
-                 padraoGrafico.set('filmes', filmes);
-                 padraoGrafico.set('qauntidadeAtores', qauntidadeAtores);
+                 padraoGrafico.set('itens', itens);
+                 padraoGrafico.set('quantidade', quantidade);
                 
              })
  
              return {
-                "filmes" : filmes,
-                "quantidadeAtores": qauntidadeAtores
+                "itens" : itens,
+                "quantidade": quantidade
             }
         });
         

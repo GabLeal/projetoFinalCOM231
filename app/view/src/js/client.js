@@ -166,7 +166,7 @@ function buscar(url, attributes) {
     });
 }
 
-const BASE_URL = 'http://localhost:3242'
+const BASE_URL = 'http://localhost:3241'
 
 function realizarBusca(){
     var attributes = []

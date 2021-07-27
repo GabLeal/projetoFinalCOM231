@@ -37,21 +37,20 @@ function criarGraficoBarra(context, label, title){
 // Cria grafico de barra
 function popularGraficoBarra(grafico,rota){
     $(document).ready(function() {
-        console.log(`http://localhost:3242$rota`)
         $.ajax({
-            url: `http://localhost:3242${rota}`,
+            url: `http://localhost:3241${rota}`,
             dataType: "json",
             cache: false,
             timeout: 5000,
             success: function(result) {
               console.log(result)
-                result.filmes.forEach((filme)=>{
-                    grafico.data.labels.push(filme);
+                result.itens.forEach((item)=>{
+                    grafico.data.labels.push(item);
                 })
 
-                result.quantidadeAtores.forEach((quantidade)=>{
+                result.quantidade.forEach((valor)=>{
                     grafico.data.datasets.forEach((dataset) => {
-                        dataset.data.push(quantidade);
+                        dataset.data.push(valor);
                         dataset.backgroundColor.push('#0062FF');
                     })
 
@@ -76,8 +75,8 @@ const produtorasContext = document.getElementsByClassName('produtoras-chart');
 const atuacoesContext = document.getElementsByClassName('atuacoes-chart');
 
 
-const graficoFilmes = criarGraficoBarra(ctx,'quantidade','Qauntidade de atores por filme')
-const graficoGeneros = criarGraficoBarra(context,'quantidade','Quantidade de filmes por genero')
+const graficoFilmes = criarGraficoBarra(ctx,'quantidade','Filmes com maior número de participações')
+const graficoGeneros = criarGraficoBarra(context,'quantidade','Ranking dos gêneros com mais filmes')
 const graficoProdutoras = criarGraficoBarra(produtorasContext,'quantidade','Quantidade de filmes por produtora')
 const graficoAtuacoes = criarGraficoBarra(atuacoesContext,'quantidade','Atores que mais tiveram atuações')
 

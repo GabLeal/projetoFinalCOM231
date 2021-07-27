@@ -14,7 +14,7 @@ app.get('/', async (req, res)=>{
     return res.sendFile(__dirname + "/view/index.html")
 })
 
-app.listen('3242')
+app.listen('3241')
 
 
 module.exports = app
